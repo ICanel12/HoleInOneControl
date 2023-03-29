@@ -104,14 +104,32 @@ namespace HoleInOneControl.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteUser(int IdUser)
         {
-            if (ModelState.IsValid)
-            {
-                await Functions.APIServices.DeleteUser(IdUser);
+            // Buscar el artículo existente en la base de datos
+            Models.User user = _holeInOneContext.Users.Find(IdUser);
 
+            if (user == null)
+            {
+                // Si el artículo no existe, devolver un mensaje de error
+                return NotFound();
             }
 
-            return RedirectToAction(nameof(List));
+            try
+            {
+                // Eliminar el artículo de la base de datos
+                _holeInOneContext.Users.Remove(user);
+                _holeInOneContext.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                // Si se produce un error al eliminar el artículo, devolver un mensaje de error
+                ModelState.AddModelError("", "No se pudo eliminar el artículo. Inténtelo de nuevo.");
+                return View(user);
+            }
+
+            // Si todo va bien, redirigir al usuario a la lista de artículos
+            return RedirectToAction("List");
         }
+    
 
     }
 }

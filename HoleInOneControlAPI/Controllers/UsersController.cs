@@ -121,6 +121,7 @@ namespace HoleInOneControlAPI.Controllers
 
 
 
+
         [Route("DeleteUser")]
         [HttpDelete]
         public async Task<HoleInOneControlModel.GeneralResult> DeleteUser(int idUser)

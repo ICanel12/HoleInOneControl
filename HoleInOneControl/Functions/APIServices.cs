@@ -58,6 +58,29 @@ namespace HoleInOneControl.Functions
         }
 
 
+        public static async System.Threading.Tasks.Task UpdateUser(HoleInOneControlModel.User object_to_serialize)
+        {
+
+            var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(object_to_serialize);
+            var content = new StringContent(json_, Encoding.UTF8, "application/json");
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+
+            // Pass the handler to httpclient(from you are calling api)
+            HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.Timeout = TimeSpan.FromSeconds(timeout);
+
+            var response = await httpClient.PutAsync(baseurl + $"Users/UpdateUser/{object_to_serialize.IdUser}", content);
+
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                throw new Exception(response.StatusCode.ToString());
+            }
+
+        }
+
+
 
         public static async Task DeleteUser(int idUser)
         {
@@ -67,14 +90,14 @@ namespace HoleInOneControl.Functions
             HttpClient httpClient = new HttpClient(clientHandler);
             httpClient.Timeout = TimeSpan.FromSeconds(timeout);
 
-            var response = await httpClient.DeleteAsync(baseurl + "Users/DeleteUser?idUser=" + idUser);
+            var response = await httpClient.DeleteAsync(baseurl + $"Users/DeleteUser/{idUser}");
 
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 throw new Exception(response.StatusCode.ToString());
             }
         }
-
+        
 
 
 
@@ -122,6 +145,48 @@ namespace HoleInOneControl.Functions
                 throw new Exception(response.StatusCode.ToString());
             }
 
+        }
+
+
+
+        public static async System.Threading.Tasks.Task UpdateArticle(HoleInOneControlModel.Article object_to_serialize)
+        {
+
+            var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(object_to_serialize);
+            var content = new StringContent(json_, Encoding.UTF8, "application/json");
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+
+            // Pass the handler to httpclient(from you are calling api)
+            HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.Timeout = TimeSpan.FromSeconds(timeout);
+
+            var response = await httpClient.PutAsync(baseurl + $"Article/UpdateArticle/{object_to_serialize.IdArticle}", content);
+
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                throw new Exception(response.StatusCode.ToString());
+            }
+
+        }
+
+
+
+        public static async Task DeleteArticle(int idArticle)
+        {
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.Timeout = TimeSpan.FromSeconds(timeout);
+
+            var response = await httpClient.DeleteAsync(baseurl + $"Users/DeleteArticle/{idArticle}");
+
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                throw new Exception(response.StatusCode.ToString());
+            }
         }
 
 
