@@ -1,0 +1,151 @@
+﻿@model HoleInOneControl.Models.Article
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card-header">
+    <h2>Editar Artículo</h2>
+    <div>
+        <a asp-action="List">Regresar</a>
+    </div>
+</div>
+
+
+<div class="card-body">
+    <div class="col-md-12">
+        <form method="post" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdArticle" />
+
+             <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="IdUser" class="control-label">Propietario</label>
+                        <input asp-for="IdUser" class="form-control" />
+                        <span asp-validation-for="IdUser" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="NameArticle" class="control-label">Nombre</label>
+                        <input asp-for="NameArticle" class="form-control" />
+                        <span asp-validation-for="NameArticle" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Brand" class="control-label">Marca</label>
+                        <input asp-for="Brand" class="form-control" />
+                        <span asp-validation-for="Brand" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Model" class="control-label">Modelo</label>
+                        <input asp-for="Model" class="form-control" />
+                        <span asp-validation-for="Model" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Capacity" class="control-label">Capacidad</label>
+                        <input asp-for="Capacity" class="form-control" />
+                        <span asp-validation-for="Capacity" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Color" class="control-label">Color</label>
+                        <input asp-for="Color" class="form-control" />
+                        <span asp-validation-for="Color" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Type" class="control-label">Tipo</label>
+                        <input asp-for="Type" class="form-control" />
+                        <span asp-validation-for="Type" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Material" class="control-label">Material</label>
+                        <input asp-for="Material" class="form-control" />
+                        <span asp-validation-for="Material" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label">Descripción</label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@if (!string.IsNullOrEmpty(ViewData["Message"] as string))
+{
+    <div class="row">
+        <div class="col-md-6">
+            <div class="alert alert-success alert-dismissible" id="message">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-check"></i> Alert!</h5>
+                        @ViewData["Message"]
+                    </div>
+        </div>
+    </div>
+}
+@if(!string.IsNullOrEmpty(ViewData["ErrorMessage"] as string))
+{
+        <div class="row">
+        <div class="col-md-6">
+            <div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <h5><i class="icon fas fa-check"></i> Alert!</h5>
+                @ViewData["ErrorMessage"]
+                        </div>
+            </div>
+        </div>
+}
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<!-- Asegúrate de tener una referencia a jQuery en la página -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // Espera a que la página se cargue por completo antes de ejecutar el código de JavaScript
+        setTimeout(function() {
+            $("#message").fadeOut("slow");
+        }, 5000);
+    });
+</script>

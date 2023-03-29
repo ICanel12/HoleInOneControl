@@ -1,0 +1,69 @@
+﻿@model HoleInOneControl.Models.Article
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card-header">
+    <h2>Eliminar Artículo</h2>
+    <h3>¿Estás seguro de que quieres eliminar este registro?</h3>
+    <div>
+        <a asp-action="List">Regresar</a>
+    </div>
+</div>
+
+<div class="card-body">
+    <div class="col-md-12">
+        <dl class="row">
+            <dt class="col-sm-2">
+                Marca
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Brand)
+            </dd>
+            <dt class="col-sm-2">
+                Model
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Model)
+            </dd>
+            <dt class="col-sm-2">
+                Capacidad
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Capacity)
+            </dd>
+            <dt class="col-sm-2">
+                Color
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Color)
+            </dd>
+            <dt class="col-sm-2">
+                Tipo
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Type)
+            </dd>
+            <dt class="col-sm-2">
+                Material
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Material)
+            </dd>
+            <dt class="col-sm-2">
+                Descripción
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+        </dl>
+
+        <form asp-action="DeleteRegister">
+            <input type="hidden" asp-for="IdArticle" />
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </form>
+    </div>
+</div>
+

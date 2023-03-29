@@ -1,0 +1,51 @@
+﻿@model HoleInOneControl.Models.User
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card-header">
+    <h2>Eliminar Usuario</h2>
+    <h3>¿Estás seguro de que quieres eliminar este registro?</h3>
+    <div>
+        <a asp-action="List">Regresar</a>
+    </div>
+</div>
+
+<div class="card-body">
+    <div class="col-md-12">
+        <dl class="row">
+            <dt class="col-sm-2">
+                Usuario
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.UserName)
+            </dd>
+            <dt class="col-sm-2">
+                Nombre
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                Apellido
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+            <dt class="col-sm-2">
+                Contraseña
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+        </dl>
+
+        <form asp-action="DeleteUser">
+            <input type="hidden" asp-for="IdUser" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> 
+        </form>
+    </div>
+</div>
