@@ -125,6 +125,10 @@
       "PackagePath": "staticwebassets\\dist\\css\\alt\\adminlte.plugins.min.css.map"
     },
     {
+      "Id": "D:\\URL\\QUINTO AÑO\\Primer Ciclo\\Programación Web\\Proyecto\\HoleInOneControl\\HoleInOneControl\\wwwroot\\dist\\img\\Accesorios.jpg",
+      "PackagePath": "staticwebassets\\dist\\img\\Accesorios.jpg"
+    },
+    {
       "Id": "D:\\URL\\QUINTO AÑO\\Primer Ciclo\\Programación Web\\Proyecto\\HoleInOneControl\\HoleInOneControl\\wwwroot\\dist\\img\\Acerca-De.jpg",
       "PackagePath": "staticwebassets\\dist\\img\\Acerca-De.jpg"
     },
@@ -133,12 +137,20 @@
       "PackagePath": "staticwebassets\\dist\\img\\AdminLTELogo.png"
     },
     {
+      "Id": "D:\\URL\\QUINTO AÑO\\Primer Ciclo\\Programación Web\\Proyecto\\HoleInOneControl\\HoleInOneControl\\wwwroot\\dist\\img\\Clases.png",
+      "PackagePath": "staticwebassets\\dist\\img\\Clases.png"
+    },
+    {
       "Id": "D:\\URL\\QUINTO AÑO\\Primer Ciclo\\Programación Web\\Proyecto\\HoleInOneControl\\HoleInOneControl\\wwwroot\\dist\\img\\Login.jpg",
       "PackagePath": "staticwebassets\\dist\\img\\Login.jpg"
     },
     {
       "Id": "D:\\URL\\QUINTO AÑO\\Primer Ciclo\\Programación Web\\Proyecto\\HoleInOneControl\\HoleInOneControl\\wwwroot\\dist\\img\\Logo.jpg",
       "PackagePath": "staticwebassets\\dist\\img\\Logo.jpg"
+    },
+    {
+      "Id": "D:\\URL\\QUINTO AÑO\\Primer Ciclo\\Programación Web\\Proyecto\\HoleInOneControl\\HoleInOneControl\\wwwroot\\dist\\img\\Torneos.jpg",
+      "PackagePath": "staticwebassets\\dist\\img\\Torneos.jpg"
     },
     {
       "Id": "D:\\URL\\QUINTO AÑO\\Primer Ciclo\\Programación Web\\Proyecto\\HoleInOneControl\\HoleInOneControl\\wwwroot\\dist\\img\\user2-160x160.jpg",

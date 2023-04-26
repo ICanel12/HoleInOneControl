@@ -1,0 +1,202 @@
+﻿@model IEnumerable<HoleInOneControlModel.Handicap>
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin: 12px;">Partidas</h2>
+
+<div class="card-header" style="text-align: end;">
+    <button type="button" class="btn btn-success">
+        <a asp-action="Create" style="color: white">Agregar</a>
+    </button>
+    <button type="button" class="btn btn-success">
+        <a asp-action="CalcularHandicap" style="color: white">Handicap</a>
+    </button>
+</div>
+
+
+<div class="card-body">
+    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Usuario
+                </th>
+                <th>
+                    Fecha
+                </th>
+                <th>
+                    H1
+                </th>
+                <th>
+                    H2
+                </th>
+                <th>
+                    H3
+                </th>
+                <th>
+                    H4
+                </th>
+                <th>
+                    H5
+                </th>
+                <th>
+                    H6
+                </th>
+                <th>
+                    H7
+                </th>
+                <th>
+                    H8
+                </th>
+                <th>
+                    H9
+                </th>
+                <th>
+                    H10
+                </th>
+                <th>
+                    H11
+                </th>
+                <th>
+                    H12
+                </th>
+                <th>
+                    H13
+                </th>
+                <th>
+                    H14
+                </th>
+                <th>
+                    H15
+                </th>
+                <th>
+                    H16
+                </th>
+                <th>
+                    H17
+                </th>
+                <th>
+                    H18
+                </th>
+                <th>
+                    Acciones
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdUser)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateHour)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoleOne)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoleTwo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoleThree)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoleFour)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoleFive)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoleSix)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoleSeven)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoleEight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoleNine)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoleTen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoleEleven)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoleTwelve)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoleThirteen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoleFourteen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoleFifteen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoleSixteen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoleSeventeen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoleEighteen)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdHandicap">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdHandicap">Eliminar</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+</div>
+
+
+<!-- jQuery -->
+<script src="~/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="~/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="~/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="~/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="~/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="~/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="~/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="~/plugins/jszip/jszip.min.js"></script>
+<script src="~/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="~/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="~/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="~/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<!-- AdminLTE App -->
+<script src="~/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="~/dist/js/demo.js"></script>
+<!-- SweetAlert2 -->
+<script src="~/plugins/sweetalert2/sweetalert2.min.js"></script>
+<!-- Toastr -->
+<script src="~/plugins/toastr/toastr.min.js"></script>
+<!-- AdminLTE App -->
+<script src="~/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="~/dist/js/demo.js"></script>
+<!-- Page specific script -->
+<!-- Page specific script -->
+<script>
+    $(function () {
+        $("#example1").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    });
+</script>
+

@@ -18,7 +18,17 @@ namespace HoleInOneControl.Controllers
 
         public async Task<IActionResult> List()
         {
-            IEnumerable<HoleInOneControlModel.User> users = await Functions.APIServices.UsersGetList();
+            HoleInOneControlModel.Token token = await Functions.APIServices.LoginAPILogin(
+            new HoleInOneControlModel.Token
+            {
+                token = "adfadsfadsfasd"
+            });
+
+            if (string.IsNullOrEmpty(token.token))
+            {
+                return NotFound();
+            }
+            IEnumerable<HoleInOneControlModel.User> users = await Functions.APIServices.UsersGetList(token.token);
             return View(users);
         }
 
@@ -34,7 +44,17 @@ namespace HoleInOneControl.Controllers
         {
             if (ModelState.IsValid) 
             {
-                await Functions.APIServices.UserSet(user);
+                HoleInOneControlModel.Token token = await Functions.APIServices.LoginAPILogin(
+                new HoleInOneControlModel.Token
+                {
+                    token = "adfadsfadsfasd"
+                });
+
+                if (string.IsNullOrEmpty(token.token))
+                {
+                    return NotFound();
+                }
+                await Functions.APIServices.UserSet(user, token.token);
             
             }
 

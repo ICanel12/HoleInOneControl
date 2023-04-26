@@ -2,3 +2,96 @@
     ViewData["Title"] = "Home Page";
 }
 
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bienvenidos a HoleInOneControl</title>
+	<style>
+		body {
+			background-color: #ECECEC;
+			font-family: Arial, sans-serif;
+		}
+
+		h1 {
+			font-weight: bold;
+			color: #049704;
+			text-align: center;
+			padding-top: 50px;
+		}
+
+		.container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 50px;
+			margin: 0 auto;
+			max-width: 1200px;
+		}
+
+		.box {
+			background-color: white;
+			padding: 30px;
+			border-radius: 10px;
+			box-shadow: 2px 2px 5px #888888;
+			flex: 1;
+			margin: 0 20px;
+		}
+
+			.box h2 {
+				color: #1A5276;
+				font-size: 24px;
+				margin-bottom: 20px;
+			}
+
+			.box p {
+				color: #555555;
+				font-size: 16px;
+				line-height: 1.5;
+			}
+
+			.box img {
+				max-width: 100%;
+				height: auto;
+				margin-top: 20px;
+			}
+
+		.button {
+			background-color: #1A5276;
+			color: white;
+			padding: 10px 20px;
+			border-radius: 5px;
+			text-decoration: none;
+			display: inline-block;
+			margin-top: 20px;
+			transition: all 0.3s ease-in-out;
+		}
+
+			.button:hover {
+				background-color: #2E86C1;
+			}
+	</style>
+</head>
+<body>
+	<h1>Bienvenido a HoleInOneControl</h1>
+	<div class="container">
+		<div class="box">
+			<h2>Clases de Golf</h2>
+			<p>Aprende a jugar golf con los mejores instructores. Ofrecemos clases para todos los niveles, desde principiantes hasta avanzados.</p>
+			<img src="~/dist/img/Clases.png" alt="Clases de Golf">
+			<a href="https://www.trgolf.com.gt/academia" class="button">Más información</a>
+		</div>
+		<div class="box">
+			<h2>Torneos de Golf</h2>
+			<p>Participa en nuestros torneos de golf y compite con otros jugadores para ganar premios increíbles.</p>
+			<img src="~/dist/img/Torneos.jpg" alt="Torneos de Golf">
+			<a href="https://www.trgolf.com.gt/academia" class="button">Más información</a>
+		</div>
+		<div class="box">
+			<h2>Accesorios de Golf</h2>
+			<p>Encuentra los mejores accesorios de golf en nuestra tienda en línea. Desde palos de golf hasta zapatos, tenemos todo lo que necesitas.</p>
+			<img src="~/dist/img/Accesorios.jpg" alt="Accesorios de Golf">
+			<a href="https://www.trgolf.com.gt/academia" class="button">Más información</a>
+		</div>
+	</div>
+</body>
+</html>

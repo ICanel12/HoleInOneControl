@@ -36,12 +36,36 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWNsZXNcTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/URL/QUINTO AÑO/Primer Ciclo/Programación Web/Proyecto/HoleInOneControl/HoleInOneControl/Views/Handicaps/CalcularHandicap.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFuZGljYXBzXENhbGN1bGFySGFuZGljYXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/URL/QUINTO AÑO/Primer Ciclo/Programación Web/Proyecto/HoleInOneControl/HoleInOneControl/Views/Handicaps/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFuZGljYXBzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/URL/QUINTO AÑO/Primer Ciclo/Programación Web/Proyecto/HoleInOneControl/HoleInOneControl/Views/Handicaps/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFuZGljYXBzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/URL/QUINTO AÑO/Primer Ciclo/Programación Web/Proyecto/HoleInOneControl/HoleInOneControl/Views/Handicaps/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFuZGljYXBzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/URL/QUINTO AÑO/Primer Ciclo/Programación Web/Proyecto/HoleInOneControl/HoleInOneControl/Views/Handicaps/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFuZGljYXBzXExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/URL/QUINTO AÑO/Primer Ciclo/Programación Web/Proyecto/HoleInOneControl/HoleInOneControl/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/URL/QUINTO AÑO/Primer Ciclo/Programación Web/Proyecto/HoleInOneControl/HoleInOneControl/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/URL/QUINTO AÑO/Primer Ciclo/Programación Web/Proyecto/HoleInOneControl/HoleInOneControl/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/URL/QUINTO AÑO/Primer Ciclo/Programación Web/Proyecto/HoleInOneControl/HoleInOneControl/Views/Shared/Error.cshtml]
@@ -66,10 +90,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/URL/QUINTO AÑO/Primer Ciclo/Programación Web/Proyecto/HoleInOneControl/HoleInOneControl/Views/Users/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcTGlzdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/URL/QUINTO AÑO/Primer Ciclo/Programación Web/Proyecto/HoleInOneControl/HoleInOneControl/Views/Users/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/URL/QUINTO AÑO/Primer Ciclo/Programación Web/Proyecto/HoleInOneControl/HoleInOneControl/Views/_ViewImports.cshtml]

@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using HoleInOneControlAPI.Models;
 using System.Xml.Linq;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HoleInOneControlAPI.Controllers
 {
@@ -10,6 +12,7 @@ namespace HoleInOneControlAPI.Controllers
 
     public class UsersController : Controller
     {
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [Route("GetUsers")]
         [HttpGet]
         public async Task<IEnumerable<HoleInOneControlModel.User>> GetUsers()
@@ -28,7 +31,7 @@ namespace HoleInOneControlAPI.Controllers
             return users;
         }
 
-
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [Route("GetUser")]
         [HttpGet]
         public async Task<HoleInOneControlModel.User> GetUser(int id)
@@ -48,7 +51,7 @@ namespace HoleInOneControlAPI.Controllers
         }
 
 
-
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [Route("CreateUser")]
         [HttpPost]
         public async Task<HoleInOneControlModel.GeneralResult> Create(HoleInOneControlModel.User user)
@@ -82,7 +85,7 @@ namespace HoleInOneControlAPI.Controllers
 
 
 
-
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [Route("UpdateUser")]
         [HttpPut]
         public async Task<HoleInOneControlModel.GeneralResult> Update(HoleInOneControlModel.User user)
@@ -120,8 +123,8 @@ namespace HoleInOneControlAPI.Controllers
 
 
 
-
-
+        //Probarlo como Post o utilizar un modelo
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [Route("DeleteUser")]
         [HttpDelete]
         public async Task<HoleInOneControlModel.GeneralResult> DeleteUser(int idUser)

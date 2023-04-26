@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using HoleInOneControlAPI.Models;
 using System.Xml.Linq;
 using System.Drawing;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace HoleInOneControlAPI.Controllers
 {
@@ -10,6 +13,7 @@ namespace HoleInOneControlAPI.Controllers
     [Route("[controller]")]
     public class ArticlesController : Controller
     {
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [Route("GetArticles")]
         [HttpGet]
         public async Task<IEnumerable<HoleInOneControlModel.Article>> GetArticles()
@@ -34,7 +38,7 @@ namespace HoleInOneControlAPI.Controllers
         }
 
 
-
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [Route("GetArticle")]
         [HttpGet]
         public async Task<HoleInOneControlModel.Article> GetArticle(int id)
@@ -58,8 +62,7 @@ namespace HoleInOneControlAPI.Controllers
             return article;
         }
 
-
-
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [Route("CreateArticle")]
         [HttpPost]
         public async Task<HoleInOneControlModel.GeneralResult> Create(HoleInOneControlModel.Article article)
@@ -99,7 +102,7 @@ namespace HoleInOneControlAPI.Controllers
 
 
 
-
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [Route("UpdateArticle")]
         [HttpPut]
         public async Task<HoleInOneControlModel.GeneralResult> Update(HoleInOneControlModel.Article article)
@@ -140,7 +143,7 @@ namespace HoleInOneControlAPI.Controllers
             return generalResult;
         }
 
-
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [Route("DeleteArticle")]
         [HttpDelete]
         public async Task<HoleInOneControlModel.GeneralResult> Delete(int idArticle)

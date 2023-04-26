@@ -13,6 +13,8 @@ public partial class Handicap
 
     public int? HoleTwo { get; set; }
 
+    public int? HoleThree { get; set; }
+
     public int? HoleFour { get; set; }
 
     public int? HoleFive { get; set; }
@@ -43,7 +45,7 @@ public partial class Handicap
 
     public int? HoleEighteen { get; set; }
 
-    public int? HoleNineteen { get; set; }
+    public DateTime? DateHour { get; set; }
 
     public virtual User? IdUserNavigation { get; set; }
 }

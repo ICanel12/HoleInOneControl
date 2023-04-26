@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MJvGyayxgPE8eRbumNJqqmDKAR9+XZn4jJdZzeUArkE=",
+  "Hash": "cy+r5sb8sFGLQzRL7ikr6MbF4mIFePbJXEjxDU9JuuQ=",
   "Source": "HoleInOneControl",
   "BasePath": "_content/HoleInOneControl",
   "Mode": "Default",
@@ -561,6 +561,23 @@
       "OriginalItemSpec": "wwwroot\\dist\\css\\Login.css"
     },
     {
+      "Identity": "D:\\URL\\QUINTO AÑO\\Primer Ciclo\\Programación Web\\Proyecto\\HoleInOneControl\\HoleInOneControl\\wwwroot\\dist\\img\\Accesorios.jpg",
+      "SourceId": "HoleInOneControl",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\URL\\QUINTO AÑO\\Primer Ciclo\\Programación Web\\Proyecto\\HoleInOneControl\\HoleInOneControl\\wwwroot\\",
+      "BasePath": "_content/HoleInOneControl",
+      "RelativePath": "dist/img/Accesorios.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\img\\Accesorios.jpg"
+    },
+    {
       "Identity": "D:\\URL\\QUINTO AÑO\\Primer Ciclo\\Programación Web\\Proyecto\\HoleInOneControl\\HoleInOneControl\\wwwroot\\dist\\img\\Acerca-De.jpg",
       "SourceId": "HoleInOneControl",
       "SourceType": "Discovered",
@@ -595,6 +612,23 @@
       "OriginalItemSpec": "wwwroot\\dist\\img\\AdminLTELogo.png"
     },
     {
+      "Identity": "D:\\URL\\QUINTO AÑO\\Primer Ciclo\\Programación Web\\Proyecto\\HoleInOneControl\\HoleInOneControl\\wwwroot\\dist\\img\\Clases.png",
+      "SourceId": "HoleInOneControl",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\URL\\QUINTO AÑO\\Primer Ciclo\\Programación Web\\Proyecto\\HoleInOneControl\\HoleInOneControl\\wwwroot\\",
+      "BasePath": "_content/HoleInOneControl",
+      "RelativePath": "dist/img/Clases.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\img\\Clases.png"
+    },
+    {
       "Identity": "D:\\URL\\QUINTO AÑO\\Primer Ciclo\\Programación Web\\Proyecto\\HoleInOneControl\\HoleInOneControl\\wwwroot\\dist\\img\\Login.jpg",
       "SourceId": "HoleInOneControl",
       "SourceType": "Discovered",
@@ -627,6 +661,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\dist\\img\\Logo.jpg"
+    },
+    {
+      "Identity": "D:\\URL\\QUINTO AÑO\\Primer Ciclo\\Programación Web\\Proyecto\\HoleInOneControl\\HoleInOneControl\\wwwroot\\dist\\img\\Torneos.jpg",
+      "SourceId": "HoleInOneControl",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\URL\\QUINTO AÑO\\Primer Ciclo\\Programación Web\\Proyecto\\HoleInOneControl\\HoleInOneControl\\wwwroot\\",
+      "BasePath": "_content/HoleInOneControl",
+      "RelativePath": "dist/img/Torneos.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\img\\Torneos.jpg"
     },
     {
       "Identity": "D:\\URL\\QUINTO AÑO\\Primer Ciclo\\Programación Web\\Proyecto\\HoleInOneControl\\HoleInOneControl\\wwwroot\\dist\\img\\user2-160x160.jpg",

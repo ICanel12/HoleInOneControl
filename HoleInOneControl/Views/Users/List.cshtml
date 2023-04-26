@@ -26,9 +26,6 @@
                     Apellido
                 </th>
                 <th>
-                    Contraseña
-                </th>
-                <th>
                     Acciones
                 </th>
             </tr>
@@ -45,9 +42,6 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.LastName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Password)
                     </td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.IdUser">Editar</a> |

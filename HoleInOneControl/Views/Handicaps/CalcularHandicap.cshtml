@@ -1,0 +1,55 @@
+﻿@model HoleInOneControlModel.Handicap
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<hr />
+<div class="card-header">
+    <h2>Cálculo de Handicap</h2>
+    <div>
+        <a asp-action="List">Regresar</a>
+    </div>
+</div>
+
+<div class="card-body">
+    <div class="col-md-12">
+        <form asp-action="CalcularValorHandicap">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="IdUser" class="control-label">Seleccione el Usuario</label>
+                        <select asp-for="IdUser" asp-items="@Model.Users" class="form-control" id="propietario" onchange="mostrarAlerta()">
+                            <option disabled selected value="">-- Seleccione usuario --</option>
+                        </select>
+                        <span asp-validation-for="IdUser" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Usuario</label>
+                        <input type="text" id="userName" class="form-control" value="@Model.userName" disabled />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label class="control-label">Valor</label>
+                    <input type="number" id="valorHandicap" class="form-control" value="@Model.valorHandicap" disabled/>
+                </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Calcular" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -2,19 +2,16 @@
 using Microsoft.AspNetCore.Mvc;
 using HoleInOneControl.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HoleInOneControl.Controllers
 {
     public class ArticlesController : Controller
     {
         HoleInOneControlContext _holeInOneContext = new HoleInOneControlContext();
-        public IActionResult Index()
-        {
-            return View();
-        }
 
-        // GET: CategoriesController/Create
-        public IActionResult Create()
+        public IActionResult Index()
         {
             return View();
         }
@@ -26,14 +23,43 @@ namespace HoleInOneControl.Controllers
         }
 
 
+        public IActionResult Create()
+        {
+            HoleInOneControlContext _holeInOneControlContext = new HoleInOneControlContext();
+            IEnumerable<HoleInOneControlModel.User> users = (from u in _holeInOneControlContext.Users
+                                                             select new HoleInOneControlModel.User
+                                                             {
+                                                                 IdUser = u.IdUser,
+                                                                 UserName = u.UserName
+                                                             }).ToList();
+
+            HoleInOneControlModel.Article article = new HoleInOneControlModel.Article();
+            article.Users = users.Select(s => new SelectListItem()
+            {
+                Value = s.IdUser.ToString(),
+                Text = s.UserName
+            }).ToList();
+
+            return View(article);
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> Create([Bind("IdUser,NameArticle,Brand,Model,Capacity,Color,Type,Material,Description")] HoleInOneControlModel.Article article)
         {
             if (ModelState.IsValid)
             {
-                await Functions.APIServices.ArticleSet(article);
+                HoleInOneControlModel.Token token = await Functions.APIServices.LoginAPILogin(
+                new HoleInOneControlModel.Token
+                {
+                    token = "adfadsfadsfasd"
+                });
 
+                if (string.IsNullOrEmpty(token.token))
+                {
+                    return NotFound();
+                }
+                await Functions.APIServices.ArticleSet(article, token.token);
             }
 
             return RedirectToAction(nameof(List));
@@ -86,9 +112,22 @@ namespace HoleInOneControl.Controllers
 
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> List()
         {
-            IEnumerable<HoleInOneControlModel.Article> articles = await Functions.APIServices.ArticlesGetList();
+
+            HoleInOneControlModel.Token token = await Functions.APIServices.LoginAPILogin(
+            new HoleInOneControlModel.Token
+            {
+                token = "adfadsfadsfasd"
+            });
+
+            if (string.IsNullOrEmpty(token.token))
+            {
+                return NotFound();
+            }
+
+            IEnumerable<HoleInOneControlModel.Article> articles = await Functions.APIServices.ArticlesGetList(token.token);
             return View(articles);
         }
 

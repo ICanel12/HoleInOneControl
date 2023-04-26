@@ -25,22 +25,20 @@ public partial class HoleInOneControlContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
-
             .SetBasePath(Directory.GetCurrentDirectory())
                         .AddJsonFile("appsettings.json")
                         .Build();
 
             var connectionString = configuration.GetConnectionString("DBHoleInOneControl");
+
             optionsBuilder.UseMySQL(connectionString);
         }
-
     }
-
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -91,6 +89,9 @@ public partial class HoleInOneControlContext : DbContext
             entity.HasIndex(e => e.IdUser, "id_user");
 
             entity.Property(e => e.IdHandicap).HasColumnName("id_handicap");
+            entity.Property(e => e.DateHour)
+                .HasColumnType("datetime")
+                .HasColumnName("date_hour");
             entity.Property(e => e.HoleEight).HasColumnName("hole_eight");
             entity.Property(e => e.HoleEighteen).HasColumnName("hole_eighteen");
             entity.Property(e => e.HoleEleven).HasColumnName("hole_eleven");
@@ -99,7 +100,6 @@ public partial class HoleInOneControlContext : DbContext
             entity.Property(e => e.HoleFour).HasColumnName("hole_four");
             entity.Property(e => e.HoleFourteen).HasColumnName("hole_fourteen");
             entity.Property(e => e.HoleNine).HasColumnName("hole_nine");
-            entity.Property(e => e.HoleNineteen).HasColumnName("hole_nineteen");
             entity.Property(e => e.HoleOne).HasColumnName("hole_one");
             entity.Property(e => e.HoleSeven).HasColumnName("hole_seven");
             entity.Property(e => e.HoleSeventeen).HasColumnName("hole_seventeen");
@@ -107,6 +107,7 @@ public partial class HoleInOneControlContext : DbContext
             entity.Property(e => e.HoleSixteen).HasColumnName("hole_sixteen");
             entity.Property(e => e.HoleTen).HasColumnName("hole_ten");
             entity.Property(e => e.HoleThirteen).HasColumnName("hole_thirteen");
+            entity.Property(e => e.HoleThree).HasColumnName("hole_three");
             entity.Property(e => e.HoleTwelve).HasColumnName("hole_twelve");
             entity.Property(e => e.HoleTwo).HasColumnName("hole_two");
             entity.Property(e => e.IdUser).HasColumnName("id_user");

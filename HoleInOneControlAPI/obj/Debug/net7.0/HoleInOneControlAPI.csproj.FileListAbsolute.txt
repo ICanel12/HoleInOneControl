@@ -64,3 +64,14 @@ D:\URL\QUINTO AÑO\Primer Ciclo\Programación Web\Proyecto\HoleInOneControl\Hole
 D:\URL\QUINTO AÑO\Primer Ciclo\Programación Web\Proyecto\HoleInOneControl\HoleInOneControlAPI\obj\Debug\net7.0\ref\HoleInOneControlAPI.dll
 D:\URL\QUINTO AÑO\Primer Ciclo\Programación Web\Proyecto\HoleInOneControl\HoleInOneControlAPI\bin\Debug\net7.0\HoleInOneControlModel.dll
 D:\URL\QUINTO AÑO\Primer Ciclo\Programación Web\Proyecto\HoleInOneControl\HoleInOneControlAPI\bin\Debug\net7.0\HoleInOneControlModel.pdb
+D:\URL\QUINTO AÑO\Primer Ciclo\Programación Web\Proyecto\HoleInOneControl\HoleInOneControlAPI\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\URL\QUINTO AÑO\Primer Ciclo\Programación Web\Proyecto\HoleInOneControl\HoleInOneControlAPI\bin\Debug\net7.0\Newtonsoft.Json.dll
+D:\URL\QUINTO AÑO\Primer Ciclo\Programación Web\Proyecto\HoleInOneControl\HoleInOneControlAPI\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
+D:\URL\QUINTO AÑO\Primer Ciclo\Programación Web\Proyecto\HoleInOneControl\HoleInOneControlAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\URL\QUINTO AÑO\Primer Ciclo\Programación Web\Proyecto\HoleInOneControl\HoleInOneControlAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+D:\URL\QUINTO AÑO\Primer Ciclo\Programación Web\Proyecto\HoleInOneControl\HoleInOneControlAPI\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\URL\QUINTO AÑO\Primer Ciclo\Programación Web\Proyecto\HoleInOneControl\HoleInOneControlAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+D:\URL\QUINTO AÑO\Primer Ciclo\Programación Web\Proyecto\HoleInOneControl\HoleInOneControlAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+D:\URL\QUINTO AÑO\Primer Ciclo\Programación Web\Proyecto\HoleInOneControl\HoleInOneControlAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\URL\QUINTO AÑO\Primer Ciclo\Programación Web\Proyecto\HoleInOneControl\HoleInOneControlAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+D:\URL\QUINTO AÑO\Primer Ciclo\Programación Web\Proyecto\HoleInOneControl\HoleInOneControlAPI\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll

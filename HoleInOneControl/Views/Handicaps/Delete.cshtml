@@ -1,0 +1,141 @@
+﻿@model HoleInOneControl.Models.Handicap
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card-header">
+    <h2>Eliminar Artículo</h2>
+    <h3>¿Estás seguro de que quieres eliminar este registro?</h3>
+    <div>
+        <a asp-action="List">Regresar</a>
+    </div>
+</div>
+
+<div class="card-body">
+    <div class="col-md-12">
+        <dl class="row">
+            <dt class = "col-sm-2">
+                Hoyo 1
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.HoleOne)
+            </dd>
+            <dt class = "col-sm-2">
+                Hoyo 2
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.HoleTwo)
+            </dd>
+            <dt class = "col-sm-2">
+                Hoyo 3
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.HoleThree)
+            </dd>
+            <dt class = "col-sm-2">
+                Hoyo 4
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.HoleFour)
+            </dd>
+            <dt class = "col-sm-2">
+                Hoyo 5
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.HoleFive)
+            </dd>
+            <dt class = "col-sm-2">
+               Hoyo 6
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.HoleSix)
+            </dd>
+            <dt class = "col-sm-2">
+                Hoyo 7
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.HoleSeven)
+            </dd>
+            <dt class = "col-sm-2">
+               Hoyo 8
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.HoleEight)
+            </dd>
+            <dt class = "col-sm-2">
+                Hoyo 9
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.HoleNine)
+            </dd>
+            <dt class = "col-sm-2">
+                Hoyo 10
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.HoleTen)
+            </dd>
+            <dt class = "col-sm-2">
+                Hoyo 11
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.HoleEleven)
+            </dd>
+            <dt class = "col-sm-2">
+                Hoyo 12
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.HoleTwelve)
+            </dd>
+            <dt class = "col-sm-2">
+                Hoyo 13
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.HoleThirteen)
+            </dd>
+            <dt class = "col-sm-2">
+                Hoyo 14
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.HoleFourteen)
+            </dd>
+            <dt class = "col-sm-2">
+                Hoyo 15
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.HoleFifteen)
+            </dd>
+            <dt class = "col-sm-2">
+                Hoyo 16
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.HoleSixteen)
+            </dd>
+            <dt class = "col-sm-2">
+                Hoyo 17
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.HoleSeventeen)
+            </dd>
+            <dt class = "col-sm-2">
+               Hoyo 18
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.HoleEighteen)
+            </dd>
+            <dt class = "col-sm-2">
+                Fecha y hora
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.DateHour)
+            </dd>
+        </dl>
+    
+        <form asp-action="DeleteRegister">
+            <input type="hidden" asp-for="IdHandicap" />
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> 
+        </form>
+    </div>
+</div>

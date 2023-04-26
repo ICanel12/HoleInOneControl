@@ -1,4 +1,4 @@
-﻿@model HoleInOneControl.Models.Article
+﻿@model HoleInOneControlModel.Article
 
 @{
     ViewData["Title"] = "Create";
@@ -21,7 +21,9 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label asp-for="IdUser" class="control-label">Propietario</label>
-                            <input asp-for="IdUser" class="form-control" />
+                            <select asp-for="IdUser" asp-items="@Model.Users" class="form-control">
+                                 <option disabled selected value="">-- Seleccione propietario --</option>
+                            </select>
                             <span asp-validation-for="IdUser" class="text-danger"></span>
                         </div>
                     </div>

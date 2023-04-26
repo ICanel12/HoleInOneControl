@@ -1,5 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using HoleInOneControl.Controllers;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
 using System.Text;
+using Microsoft.JSInterop;
 
 namespace HoleInOneControl.Functions
 {
@@ -7,9 +10,32 @@ namespace HoleInOneControl.Functions
     {
 
         private static int timeout = 30;
-        private static string baseurl = "https://localhost/HoleInOneControlAPI/";
+        private static string baseurl = "https://localhost:7099/";
 
-        public static async System.Threading.Tasks.Task<IEnumerable<HoleInOneControlModel.User>> UsersGetList()
+
+        public static async System.Threading.Tasks.Task<HoleInOneControlModel.Token> LoginAPILogin(HoleInOneControlModel.Token object_to_serialize)
+        {
+            var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(object_to_serialize);
+            var content = new StringContent(json_, Encoding.UTF8, "application/json");
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            // Pass the handler to httpclient(from you are calling api)
+            HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.Timeout = TimeSpan.FromSeconds(timeout);
+
+            var response = await httpClient.PostAsync(baseurl + "LoginAPI/Login", content);
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                return JsonConvert.DeserializeObject<HoleInOneControlModel.Token>(await response.Content.ReadAsStringAsync());
+            }
+            else
+            {
+                throw new Exception(response.StatusCode.ToString());
+            }
+
+        }
+
+        public static async System.Threading.Tasks.Task<IEnumerable<HoleInOneControlModel.User>> UsersGetList(string accessToken)
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
@@ -17,8 +43,8 @@ namespace HoleInOneControl.Functions
 
             // Pass the handler to httpclient(from you are calling api)
             HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + accessToken);
             httpClient.Timeout = TimeSpan.FromSeconds(timeout);
-
             var response = await httpClient.GetAsync(baseurl + "Users/GetUsers");
 
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -35,9 +61,10 @@ namespace HoleInOneControl.Functions
 
 
         
-        public static async System.Threading.Tasks.Task UserSet(HoleInOneControlModel.User object_to_serialize)
+        public static async System.Threading.Tasks.Task UserSet(HoleInOneControlModel.User object_to_serialize, string accessToken)
         {
-
+            EncryptMD5 encr = new EncryptMD5();
+            object_to_serialize.Password = encr.Encrypt(object_to_serialize.Password);
             var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(object_to_serialize);
             var content = new StringContent(json_, Encoding.UTF8, "application/json");
             HttpClientHandler clientHandler = new HttpClientHandler();
@@ -46,6 +73,7 @@ namespace HoleInOneControl.Functions
 
             // Pass the handler to httpclient(from you are calling api)
             HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + accessToken);
             httpClient.Timeout = TimeSpan.FromSeconds(timeout);
 
             var response = await httpClient.PostAsync(baseurl + "Users/CreateUser", content);
@@ -54,7 +82,6 @@ namespace HoleInOneControl.Functions
             {
                 throw new Exception(response.StatusCode.ToString());
             }
-
         }
 
 
@@ -101,7 +128,7 @@ namespace HoleInOneControl.Functions
 
 
 
-        public static async System.Threading.Tasks.Task<IEnumerable<HoleInOneControlModel.Article>> ArticlesGetList()
+        public static async System.Threading.Tasks.Task<IEnumerable<HoleInOneControlModel.Article>> ArticlesGetList(string accessToken)
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
@@ -109,6 +136,7 @@ namespace HoleInOneControl.Functions
 
             // Pass the handler to httpclient(from you are calling api)
             HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + accessToken);
             httpClient.Timeout = TimeSpan.FromSeconds(timeout);
 
             var response = await httpClient.GetAsync(baseurl + "Articles/GetArticles");
@@ -126,7 +154,7 @@ namespace HoleInOneControl.Functions
         }
 
 
-        public static async System.Threading.Tasks.Task ArticleSet(HoleInOneControlModel.Article object_to_serialize)
+        public static async System.Threading.Tasks.Task ArticleSet(HoleInOneControlModel.Article object_to_serialize, string accessToken)
         {
 
             var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(object_to_serialize);
@@ -136,6 +164,7 @@ namespace HoleInOneControl.Functions
 
 
             HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + accessToken);
             httpClient.Timeout = TimeSpan.FromSeconds(timeout);
 
             var response = await httpClient.PostAsync(baseurl + "Articles/CreateArticle", content);
@@ -187,6 +216,61 @@ namespace HoleInOneControl.Functions
             {
                 throw new Exception(response.StatusCode.ToString());
             }
+        }
+
+
+
+		//HANDICAP
+
+		public static async System.Threading.Tasks.Task<IEnumerable<HoleInOneControlModel.Handicap>> HandicapList(string accessToken)
+		{
+			HttpClientHandler clientHandler = new HttpClientHandler();
+			clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+
+			// Pass the handler to httpclient(from you are calling api)
+			HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + accessToken);
+            httpClient.Timeout = TimeSpan.FromSeconds(timeout);
+
+			var response = await httpClient.GetAsync(baseurl + "Handicaps/GetPartidas");
+            
+			if (response.StatusCode == System.Net.HttpStatusCode.OK)
+			{
+				return JsonConvert.DeserializeObject<IEnumerable<HoleInOneControlModel.Handicap>>(await response.Content.ReadAsStringAsync());
+			}
+
+			else
+			{
+				throw new Exception(response.StatusCode.ToString());
+
+			}
+		}
+
+
+
+        public static async System.Threading.Tasks.Task CreateHandicap(HoleInOneControlModel.Handicap object_to_serialize, string accessToken)
+        {
+            object_to_serialize.DateHour = DateTime.Now;
+
+            var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(object_to_serialize);
+            var content = new StringContent(json_, Encoding.UTF8, "application/json");
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+
+            // Pass the handler to httpclient(from you are calling api)
+            HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + accessToken);
+            httpClient.Timeout = TimeSpan.FromSeconds(timeout);
+
+            var response = await httpClient.PostAsync(baseurl + "Handicaps/CreatePartida", content);
+
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                throw new Exception(response.StatusCode.ToString());
+            }
+
         }
 
 
