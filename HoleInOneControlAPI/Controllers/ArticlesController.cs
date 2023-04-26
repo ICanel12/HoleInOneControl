@@ -178,6 +178,46 @@ namespace HoleInOneControlAPI.Controllers
         }
 
 
+        [Route("CreateTransaction")]
+        [HttpPost]
+        public async Task<HoleInOneControlModel.GeneralResult> CreateTransaction(HoleInOneControlModel.Transaction transaction)
+        {
+            HoleInOneControlModel.GeneralResult generalResult = new HoleInOneControlModel.GeneralResult()
+            {
+                Result = false
+            };
+
+            try
+            {
+                HoleInOneControlContext _holeInOneControlContext = new HoleInOneControlContext();
+                Models.Transaction newTransaction = new Models.Transaction
+                {
+                    IdUser = transaction.IdUser,
+                    DateHour = DateTime.Now,
+                    TypeTransaction = "Entrada",
+                    NameArticle = transaction.NameArticle,
+                    Brand = transaction.Brand,
+                    Model = transaction.Model,
+                    Capacity = transaction.Capacity,
+                    Color = transaction.Color,
+                    Type = transaction.Type,
+                    Material = transaction.Material,
+                    Description = transaction.Description
+
+                };
+                _holeInOneControlContext.Transactions.Add(newTransaction);
+                await _holeInOneControlContext.SaveChangesAsync();
+                generalResult.Result = true;
+            }
+            catch (Exception ex)
+            {
+                generalResult.Result = false;
+                generalResult.ErrorMessage = ex.Message;
+            }
+            return generalResult;
+        }
+
+
 
     }
 }

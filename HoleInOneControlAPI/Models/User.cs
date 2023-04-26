@@ -15,9 +15,7 @@ public partial class User
 
     public string Password { get; set; } = null!;
 
-    public virtual ICollection<Article> Articles { get; } = new List<Article>();
+    public virtual ICollection<Article> Articles { get; set; } = new List<Article>();
 
-    public virtual ICollection<Handicap> Handicaps { get; } = new List<Handicap>();
-
-    public virtual ICollection<Transaction> Transactions { get; } = new List<Transaction>();
+    public virtual ICollection<Handicap> Handicaps { get; set; } = new List<Handicap>();
 }

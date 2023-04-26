@@ -26,6 +26,4 @@ public partial class Article
     public string? Description { get; set; }
 
     public virtual User? IdUserNavigation { get; set; }
-
-    public virtual ICollection<TransactionArticle> TransactionArticles { get; } = new List<TransactionArticle>();
 }

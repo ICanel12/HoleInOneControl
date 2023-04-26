@@ -21,8 +21,6 @@ public partial class HoleInOneControlContext : DbContext
 
     public virtual DbSet<Transaction> Transactions { get; set; }
 
-    public virtual DbSet<TransactionArticle> TransactionArticles { get; set; }
-
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -38,10 +36,7 @@ public partial class HoleInOneControlContext : DbContext
 
             optionsBuilder.UseMySQL(connectionString);
         }
-
     }
-
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Article>(entity =>
@@ -125,39 +120,36 @@ public partial class HoleInOneControlContext : DbContext
 
             entity.ToTable("transaction");
 
-            entity.HasIndex(e => e.IdUser, "id_user");
-
             entity.Property(e => e.IdTransaction).HasColumnName("id_transaction");
+            entity.Property(e => e.Brand)
+                .HasMaxLength(50)
+                .HasColumnName("brand");
+            entity.Property(e => e.Capacity).HasColumnName("capacity");
+            entity.Property(e => e.Color)
+                .HasMaxLength(50)
+                .HasColumnName("color");
             entity.Property(e => e.DateHour)
                 .HasColumnType("datetime")
                 .HasColumnName("date_hour");
-            entity.Property(e => e.IdUser).HasColumnName("id_user");
+            entity.Property(e => e.Description)
+                .HasMaxLength(500)
+                .HasColumnName("description");
+            entity.Property(e => e.Material)
+                .HasMaxLength(50)
+                .HasColumnName("material");
+            entity.Property(e => e.Model)
+                .HasMaxLength(50)
+                .HasColumnName("model");
+            entity.Property(e => e.NameArticle)
+                .HasMaxLength(100)
+                .HasColumnName("name_article");
             entity.Property(e => e.Type)
                 .HasMaxLength(50)
                 .HasColumnName("type");
-
-            entity.HasOne(d => d.IdUserNavigation).WithMany(p => p.Transactions)
-                .HasForeignKey(d => d.IdUser)
-                .HasConstraintName("transaction_ibfk_1");
-        });
-
-        modelBuilder.Entity<TransactionArticle>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PRIMARY");
-
-            entity.ToTable("transaction_articles");
-
-            entity.HasIndex(e => e.IdArticle, "id_article");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.IdArticle).HasColumnName("id_article");
-            entity.Property(e => e.Type)
+            entity.Property(e => e.TypeTransaction)
                 .HasMaxLength(50)
-                .HasColumnName("type");
-
-            entity.HasOne(d => d.IdArticleNavigation).WithMany(p => p.TransactionArticles)
-                .HasForeignKey(d => d.IdArticle)
-                .HasConstraintName("transaction_articles_ibfk_1");
+                .HasColumnName("type_transaction");
+            entity.Property(e => e.IdUser).HasColumnName("id_user"); ;
         });
 
         modelBuilder.Entity<User>(entity =>

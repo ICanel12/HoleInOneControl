@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using HoleInOneControl.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HoleInOneControl.Controllers
 {
@@ -16,6 +17,7 @@ namespace HoleInOneControl.Controllers
         }
 
 
+        [Authorize]
         public async Task<IActionResult> List()
         {
             HoleInOneControlModel.Token token = await Functions.APIServices.LoginAPILogin(
@@ -33,6 +35,7 @@ namespace HoleInOneControl.Controllers
         }
 
 
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -40,6 +43,7 @@ namespace HoleInOneControl.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("UserName,Name,LastName,Password")] HoleInOneControlModel.User user) 
         {
             if (ModelState.IsValid) 
@@ -62,6 +66,7 @@ namespace HoleInOneControl.Controllers
         }
 
 
+        [Authorize]
         public ActionResult Edit(int id)
         {
             Models.User user = _holeInOneContext.Users.Find(id);
@@ -70,6 +75,7 @@ namespace HoleInOneControl.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public IActionResult Edit(int Id, string UserName, string Name, string LastName, string Password)
         {
             Models.User user = _holeInOneContext.Users.Find(Id);
@@ -107,7 +113,7 @@ namespace HoleInOneControl.Controllers
         }
 
 
-        // GET: UsersController/Delete/5
+        [Authorize]
         public ActionResult Delete(int id)
         {
             Models.User user = _holeInOneContext.Users.Find(id);
@@ -115,6 +121,7 @@ namespace HoleInOneControl.Controllers
         }
 
 
+        [Authorize]
         public IActionResult Login()
         {
             return View();
@@ -122,6 +129,7 @@ namespace HoleInOneControl.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> DeleteUser(int IdUser)
         {
             // Buscar el artículo existente en la base de datos

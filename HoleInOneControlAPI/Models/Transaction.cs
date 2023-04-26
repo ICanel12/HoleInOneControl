@@ -11,7 +11,21 @@ public partial class Transaction
 
     public DateTime? DateHour { get; set; }
 
-    public string Type { get; set; } = null!;
+    public string? TypeTransaction { get; set; }
 
-    public virtual User? IdUserNavigation { get; set; }
+    public string NameArticle { get; set; } = null!;
+
+    public string? Brand { get; set; }
+
+    public string? Model { get; set; }
+
+    public int? Capacity { get; set; }
+
+    public string? Color { get; set; }
+
+    public string? Type { get; set; }
+
+    public string? Material { get; set; }
+
+    public string? Description { get; set; }
 }

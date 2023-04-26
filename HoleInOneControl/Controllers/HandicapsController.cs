@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using HoleInOneControl.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HoleInOneControl.Controllers
 {
@@ -10,13 +11,16 @@ namespace HoleInOneControl.Controllers
 	{
         HoleInOneControlContext _holeInOneContext = new HoleInOneControlContext();
 
+        [Authorize]
         public IActionResult Index()
 		{
 			return View();
 		}
 
+
 		[HttpGet]
-		public async Task<IActionResult> List()
+        [Authorize]
+        public async Task<IActionResult> List()
 		{
             HoleInOneControlModel.Token token = await Functions.APIServices.LoginAPILogin(
             new HoleInOneControlModel.Token
@@ -33,6 +37,7 @@ namespace HoleInOneControl.Controllers
 		}
 
 
+        [Authorize]
         public IActionResult Create()
        {
             HoleInOneControlContext _holeInOneControlContext = new HoleInOneControlContext();
@@ -55,6 +60,7 @@ namespace HoleInOneControl.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("IdUser,HoleOne,HoleTwo,HoleThree,HoleFour,HoleFive,HoleSix,HoleSeven,HoleEight,HoleNine,HoleTen,HoleEleven,HoleTwelve,HoleThirteen,HoleFourteen,HoleFifteen,HoleSixteen,HoleSeventeen,HoleEighteen,valorHandicap, userName")] HoleInOneControlModel.Handicap handicap)
         {
 
@@ -76,6 +82,7 @@ namespace HoleInOneControl.Controllers
         }
 
 
+        [Authorize]
         public IActionResult Delete(int id)
         {
             Models.Handicap handicap = _holeInOneContext.Handicaps.Find(id);
@@ -85,6 +92,7 @@ namespace HoleInOneControl.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public IActionResult DeleteRegister(int IdHandicap)
         {
             // Buscar el artículo existente en la base de datos
@@ -114,7 +122,7 @@ namespace HoleInOneControl.Controllers
         }
 
 
-
+        [Authorize]
         public IActionResult Edit(int id)
         {
             Models.Handicap handicap = _holeInOneContext.Handicaps.Find(id);
@@ -124,6 +132,7 @@ namespace HoleInOneControl.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public IActionResult Edit(int idhandicap, int holeone, int holetwo, int holethree, int holefour, int holefive, int holesix, int holeseven, int holeeight, int holenine, int holeten, int holeeleven, int holetwelve, int holethirteen, int holefourteen, int holefifteen, int holesixteen, int holeseventeen, int holeeighteen)
         {
             Models.Handicap handicap = _holeInOneContext.Handicaps.Find(idhandicap);
@@ -173,6 +182,7 @@ namespace HoleInOneControl.Controllers
         }
 
 
+        [Authorize]
         public IActionResult CalcularHandicap()
         {
             HoleInOneControlContext _holeInOneControlContext = new HoleInOneControlContext();
@@ -194,6 +204,7 @@ namespace HoleInOneControl.Controllers
         }
 
 
+        [Authorize]
         public IActionResult CalcularValorHandicap(int idUser)
         {
 

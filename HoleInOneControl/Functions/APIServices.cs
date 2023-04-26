@@ -176,6 +176,27 @@ namespace HoleInOneControl.Functions
 
         }
 
+        public static async System.Threading.Tasks.Task TransactionSet(HoleInOneControlModel.Article object_to_serialize, string accessToken)
+        {
+            var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(object_to_serialize);
+            var content = new StringContent(json_, Encoding.UTF8, "application/json");
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+
+            HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + accessToken);
+            httpClient.Timeout = TimeSpan.FromSeconds(timeout);
+
+            var response = await httpClient.PostAsync(baseurl + "Articles/CreateTransaction", content);
+
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                throw new Exception(response.StatusCode.ToString());
+            }
+
+        }
+
 
 
         public static async System.Threading.Tasks.Task UpdateArticle(HoleInOneControlModel.Article object_to_serialize)

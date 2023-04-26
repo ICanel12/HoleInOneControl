@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using HoleInOneControl.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HoleInOneControl.Controllers
 {
@@ -14,6 +15,7 @@ namespace HoleInOneControl.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Login(string userName, string password)
         {
  
@@ -43,7 +45,9 @@ namespace HoleInOneControl.Controllers
             return RedirectToAction("Index", "Login");
         }
 
+
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Logout() {
             await HttpContext.SignOutAsync();
             return RedirectToAction("Index", "Login");

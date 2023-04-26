@@ -11,18 +11,20 @@ namespace HoleInOneControl.Controllers
     {
         HoleInOneControlContext _holeInOneContext = new HoleInOneControlContext();
 
+        [Authorize]
         public IActionResult Index()
         {
             return View();
         }
 
+        [Authorize]
         public IActionResult Edit(int id)
         {
             Models.Article article = _holeInOneContext.Articles.Find(id);
             return View(article);
         }
 
-
+        [Authorize]
         public IActionResult Create()
         {
             HoleInOneControlContext _holeInOneControlContext = new HoleInOneControlContext();
@@ -45,6 +47,7 @@ namespace HoleInOneControl.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("IdUser,NameArticle,Brand,Model,Capacity,Color,Type,Material,Description")] HoleInOneControlModel.Article article)
         {
             if (ModelState.IsValid)
@@ -60,6 +63,7 @@ namespace HoleInOneControl.Controllers
                     return NotFound();
                 }
                 await Functions.APIServices.ArticleSet(article, token.token);
+                await Functions.APIServices.TransactionSet(article, token.token);
             }
 
             return RedirectToAction(nameof(List));
@@ -67,6 +71,7 @@ namespace HoleInOneControl.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public IActionResult Edit(int id, int iduser, string namearticle, string brand, string model, int capacity, string color, string type, string material, string description)
         {
             Models.Article article = _holeInOneContext.Articles.Find(id);
@@ -142,6 +147,7 @@ namespace HoleInOneControl.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public IActionResult DeleteRegister(int IdArticle)
         {
             // Buscar el artículo existente en la base de datos

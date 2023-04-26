@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace HoleInOneControl.Models;
@@ -49,5 +48,4 @@ public partial class Handicap
     public DateTime? DateHour { get; set; }
 
     public virtual User? IdUserNavigation { get; set; }
-
 }
